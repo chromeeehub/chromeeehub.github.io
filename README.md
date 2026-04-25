@@ -1,2 +1,2 @@
-# chromeeehub.github.io
+# Chromeee Hub
 only page that show you trash script
