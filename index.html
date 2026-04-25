@@ -235,7 +235,7 @@
             <div class="key-section">
                 <div style="color: var(--text-dim); font-size: 0.9rem; font-weight: 600;">KEY SYSTEM STATUS: ACTIVE</div>
                 <div class="timer" id="countdown">00:00:00</div>
-                <p style="font-size: 0.8rem; color: var(--text-dim);">Key reset setiap 12 jam (10 AM/PM) WIB</p>
+                <p style="font-size: 0.8rem; color: var(--text-dim);">Key reset setiap 12 jam (9 AM/PM) WIB</p>
                 <a href="https://sfl.gl/0eNLB3T7" class="btn-key" target="_blank">GET NEW KEY</a>
             </div>
         </section>
@@ -269,16 +269,23 @@
             });
         }
 
-        // Fungsi Countdown 12 Jam (Loop)
+        // Fungsi Countdown 12 Jam (Loop 10 AM & 10 PM)
         function updateCountdown() {
             const now = new Date();
-            
-            // Tentukan target: jam 12 siang (12:00) atau jam 12 malam (00:00) berikutnya
             let target = new Date();
-            if (now.getHours() < 10) {
+            
+            const currentHour = now.getHours();
+
+            if (currentHour < 10) {
+                // Jika masih sebelum jam 10 pagi, targetnya jam 10 pagi ini
                 target.setHours(10, 0, 0, 0);
-            } else {
+            } else if (currentHour < 21) {
+                // Jika antara jam 10 pagi dan sebelum jam 10 malam, targetnya jam 10 malam ini
                 target.setHours(21, 0, 0, 0);
+            } else {
+                // Jika sudah lewat jam 10 malam, targetnya jam 10 pagi BESOK
+                target.setHours(9, 0, 0, 0);
+                target.setDate(target.getDate() + 1); // Tambah 1 hari
             }
 
             const diff = target - now;
