@@ -18,7 +18,7 @@ jobs:
 
       - name: Ganti Link di Index
         run: |
-          sed -i 's|href="https://sfl.gl/[^"]*"|href="https://sfl.gl/xAi61DS"|g' index.html
+          sed -i 's|href="https://sfl.gl/[^"]*"|href="https://sfl.gl/aiadPu"|g' index.html
 
       - name: Commit & Push
         run: |
