@@ -276,9 +276,9 @@
             
             const currentHour = now.getHours();
 
-            if (currentHour < 10) {
+            if (currentHour < 9) {
                 // Jika masih sebelum jam 10 pagi, targetnya jam 10 pagi ini
-                target.setHours(10, 0, 0, 0);
+                target.setHours(9, 0, 0, 0);
             } else if (currentHour < 21) {
                 // Jika antara jam 10 pagi dan sebelum jam 10 malam, targetnya jam 10 malam ini
                 target.setHours(21, 0, 0, 0);
