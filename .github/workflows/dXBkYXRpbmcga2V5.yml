@@ -3,7 +3,7 @@ name: Update key
 on:
   schedule:
 
-    - cron: '15 2,14 * * *'
+    - cron: '0 12,0 * * *'
   workflow_dispatch:
 
 permissions:
@@ -18,7 +18,7 @@ jobs:
 
       - name: Ganti Link di Index
         run: |
-          sed -i 's|href="https://sfl.gl/[^"]*"|href="https://sfl.gl/aiadPu"|g' index.html
+          sed -i 's|href="https://sfl.gl/[^"]*"|href="https://sfl.gl/zoQqJ1l1"|g' index.html
 
       - name: Commit & Push
         run: |
