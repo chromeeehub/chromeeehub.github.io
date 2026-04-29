@@ -3,7 +3,7 @@ name: Update key
 on:
   schedule:
 
-    - cron: '0 12,0 * * *'
+    - cron: '55 6,18 * * *'
   workflow_dispatch:
 
 permissions:
