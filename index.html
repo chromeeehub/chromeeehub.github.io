@@ -276,7 +276,7 @@
             <div class="global-countdown">
                 <div style="color: var(--text-dim); font-size: 0.9rem; font-weight: 600; text-transform: uppercase;">Next Key Reset In</div>
                 <div class="timer" id="globalCountdown">00:00:00</div>
-                <p style="font-size: 0.85rem; color: var(--text-dim);">Semua key akan direset secara serentak setiap 12 jam (9 AM / 9 PM WIB)</p>
+                <p style="font-size: 0.85rem; color: var(--text-dim);">Semua key akan direset secara serentak setiap jam 12 malam (00:00 WIB)</p>
             </div>
 
         </section>
@@ -309,21 +309,13 @@
             });
         }
 
-        // Fungsi Global Countdown 12 Jam (Loop 9 AM & 9 PM)
+        // Fungsi Global Countdown ke Jam 12 Malam
         function updateCountdown() {
             const now = new Date();
             let target = new Date();
             
-            const currentHour = now.getHours();
-
-            if (currentHour < 9) {
-                target.setHours(9, 0, 0, 0);
-            } else if (currentHour < 21) {
-                target.setHours(21, 0, 0, 0);
-            } else {
-                target.setHours(9, 0, 0, 0);
-                target.setDate(target.getDate() + 1);
-            }
+            // Set target selalu ke jam 12 malam (00:00:00) hari berikutnya
+            target.setHours(24, 0, 0, 0);
 
             const diff = target - now;
 
