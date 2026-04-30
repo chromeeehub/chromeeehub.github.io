@@ -84,13 +84,17 @@
             -webkit-text-fill-color: transparent;
         }
 
+        /* Script Section Wrapper */
+        .script-wrapper {
+            margin-bottom: 30px;
+        }
+
         /* Script Box */
         .script-card {
             background: var(--card-bg);
             border: 1px solid #2d2d35;
             border-radius: 12px;
             padding: 30px;
-            margin-bottom: 20px;
             text-align: left;
             position: relative;
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
@@ -146,38 +150,50 @@
             box-shadow: 0 5px 15px var(--accent-glow);
         }
 
-        /* Key Section */
-        .key-section {
-            background: rgba(0, 242, 255, 0.03);
-            border: 1px dashed var(--accent-color);
-            border-radius: 12px;
-            padding: 25px;
-            margin-top: 30px;
-        }
-
-        .timer {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 1.5rem;
-            color: var(--accent-color);
-            margin: 10px 0;
-            font-weight: 700;
+        /* Key Button */
+        .key-action-container {
+            margin-top: 20px;
+            text-align: center;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .btn-key {
             display: inline-block;
-            margin-top: 15px;
-            padding: 12px 30px;
+            padding: 10px 30px;
+            background: transparent;
             border: 1px solid var(--accent-color);
             color: var(--accent-color);
             text-decoration: none;
             border-radius: 50px;
             font-weight: 600;
             transition: 0.3s;
+            text-transform: uppercase;
+            font-size: 0.9rem;
         }
 
         .btn-key:hover {
             background: var(--accent-color);
             color: #000;
+            box-shadow: 0 0 15px var(--accent-glow);
+        }
+
+        /* Global Countdown Section */
+        .global-countdown {
+            background: rgba(0, 242, 255, 0.03);
+            border: 1px dashed var(--accent-color);
+            border-radius: 12px;
+            padding: 25px;
+            margin-top: 50px;
+        }
+
+        .timer {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 2rem;
+            color: var(--accent-color);
+            margin: 10px 0;
+            font-weight: 700;
+            letter-spacing: 2px;
         }
 
         /* Social Links */
@@ -223,54 +239,77 @@
         <section id="scripts">
             <h1>Script Repository</h1>
 
-            <div class="script-card">
-                <div class="script-title">Kurir MBG Script</div>
-                <div class="code-box" id="scriptText">
-                    loadstring(game:HttpGet("https://chromeeehub.github.io/kurirmbg.txt"))()
+            <!-- ================= SCRIPT 1: KURIR MBG ================= -->
+            <div class="script-wrapper">
+                <div class="script-card">
+                    <div class="script-title">Kurir MBG Script</div>
+                    <div class="code-box" id="scriptTextMBG">
+                        loadstring(game:HttpGet("https://chromeeehub.github.io/kurirmbg.txt"))()
+                    </div>
+                    <button class="btn-copy" onclick="copyScript('scriptTextMBG', this)">
+                        <i class="fas fa-copy"></i> Copy Script
+                    </button>
+                    <div class="key-action-container">
+                        <a href="https://sfl.gl/pof6ZY" class="btn-key" target="_blank">Get Key (MBG)</a>
+                    </div>
                 </div>
-                <button class="btn-copy" onclick="copyScript()">
-                    <i class="fas fa-copy"></i> Copy Script
-                </button>
             </div>
 
-            <div class="key-section">
-                <div style="color: var(--text-dim); font-size: 0.9rem; font-weight: 600;">KEY SYSTEM STATUS: ACTIVE</div>
-                <div class="timer" id="countdown">00:00:00</div>
-                <p style="font-size: 0.8rem; color: var(--text-dim);">Key reset setiap 12 jam (9 AM/PM) WIB</p>
-                <a href="https://sfl.gl/pof6ZY" class="btn-key" target="_blank">GET NEW KEY</a>
+            <!-- ================= SCRIPT 2: DESA RAYAP ================= -->
+            <div class="script-wrapper">
+                <div class="script-card">
+                    <div class="script-title">Desa Rayap Script</div>
+                    <div class="code-box" id="scriptTextDesa">
+                        loadstring(game:HttpGet("https://chromeeehub.github.io/desarayap.txt"))()
+                    </div>
+                    <button class="btn-copy" onclick="copyScript('scriptTextDesa', this)">
+                        <i class="fas fa-copy"></i> Copy Script
+                    </button>
+                    <div class="key-action-container">
+                        <!-- Jangan lupa ganti # dengan link key Desa Rayap -->
+                        <a href="https://sfl.gl/xF9F9x7" class="btn-key" target="_blank">Get Key (Desa Rayap)</a>
+                    </div>
+                </div>
             </div>
+
+            <!-- ================= GLOBAL COUNTDOWN ================= -->
+            <div class="global-countdown">
+                <div style="color: var(--text-dim); font-size: 0.9rem; font-weight: 600; text-transform: uppercase;">Next Key Reset In</div>
+                <div class="timer" id="globalCountdown">00:00:00</div>
+                <p style="font-size: 0.85rem; color: var(--text-dim);">Semua key akan direset secara serentak setiap 12 jam (9 AM / 9 PM WIB)</p>
+            </div>
+
         </section>
 
-<section id="about" style="margin-top: 80px;">
+        <section id="about" style="margin-top: 80px;">
             <p style="color: var(--text-dim);">
                 Gw bikin script cuma gabut doang.
             </p>
             
-
-        <div class="social-footer">
-            <a href="https://www.whatsapp.com/channel/0029Vb7i9Td60eBW06WKXi2i" class="btn-wa" target="_blank">
-                <i class="fab fa-whatsapp"></i> Join WhatsApp Channel
-            </a>
-        </div>
+            <div class="social-footer">
+                <a href="https://www.whatsapp.com/channel/0029Vb7i9Td60eBW06WKXi2i" class="btn-wa" target="_blank">
+                    <i class="fab fa-whatsapp"></i> Join WhatsApp Channel
+                </a>
+            </div>
+        </section>
     </div>
 
     <script>
-        // Fungsi Copy Script
-        function copyScript() {
-            const text = document.getElementById('scriptText').innerText;
+        // Fungsi Copy Script Dinamis
+        function copyScript(elementId, btnElement) {
+            const text = document.getElementById(elementId).innerText.trim();
             navigator.clipboard.writeText(text).then(() => {
-                const btn = document.querySelector('.btn-copy');
-                const originalText = btn.innerHTML;
-                btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
-                btn.style.background = '#00ff88';
+                const originalText = btnElement.innerHTML;
+                btnElement.innerHTML = '<i class="fas fa-check"></i> Copied!';
+                btnElement.style.background = '#00ff88';
                 setTimeout(() => {
-                    btn.innerHTML = originalText;
-                    btn.style.background = '#00f2ff';
+                    btnElement.innerHTML = originalText;
+                    btnElement.style.background = '#00f2ff';
                 }, 2000);
             });
         }
 
-        // Fungsi Countdown 12 Jam (Loop 10 AM & 10 PM)
+        // Fungsi Global Countdown 12 Jam (Loop 9 AM & 9 PM)
         function updateCountdown() {
             const now = new Date();
             let target = new Date();
@@ -278,15 +317,12 @@
             const currentHour = now.getHours();
 
             if (currentHour < 9) {
-                // Jika masih sebelum jam 10 pagi, targetnya jam 10 pagi ini
                 target.setHours(9, 0, 0, 0);
             } else if (currentHour < 21) {
-                // Jika antara jam 10 pagi dan sebelum jam 10 malam, targetnya jam 10 malam ini
                 target.setHours(21, 0, 0, 0);
             } else {
-                // Jika sudah lewat jam 10 malam, targetnya jam 10 pagi BESOK
                 target.setHours(9, 0, 0, 0);
-                target.setDate(target.getDate() + 1); // Tambah 1 hari
+                target.setDate(target.getDate() + 1);
             }
 
             const diff = target - now;
@@ -295,7 +331,7 @@
             const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
             const s = Math.floor((diff % (1000 * 60)) / 1000);
 
-            document.getElementById('countdown').innerHTML = 
+            document.getElementById('globalCountdown').innerHTML = 
                 (h < 10 ? '0' + h : h) + ":" + 
                 (m < 10 ? '0' + m : m) + ":" + 
                 (s < 10 ? '0' + s : s);
